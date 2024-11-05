@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "iat.pam.basicscodelab"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "iat.pam.basicscodelab"

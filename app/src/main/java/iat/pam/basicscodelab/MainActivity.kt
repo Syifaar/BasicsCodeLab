@@ -14,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import iat.pam.basicscodelab.ui.theme.BasicsCodeLabTheme
 import androidx.compose.material3.Surface
+import androidx.compose.ui.unit.dp
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,26 +22,33 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             BasicsCodeLabTheme {
-                Surface (
-                    modifier =Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ){
-                    Greeting("Android")
-                }
+                MyApp(modifier = Modifier.fillMaxSize())
             }
         }
     }
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
+fun MyApp(modifier: Modifier = Modifier) {
+    Surface(
+        modifier = modifier,
+        color = MaterialTheme.colorScheme.background
+    ) {
+        Greeting("Android")
+    }
 }
 
-@Preview(showBackground = true)
+@Composable
+fun Greeting(name: String, modifier: Modifier = Modifier) {
+    Surface (color = MaterialTheme.colorScheme.primary){
+        Text(
+            text = "Hello $name!",
+            modifier = modifier.padding(24.dp)
+        )
+    }
+}
+
+@Preview(showBackground = true, name = "Text Preview")
 @Composable
 fun GreetingPreview() {
     BasicsCodeLabTheme {
